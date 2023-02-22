@@ -1,13 +1,15 @@
 # SalesPrediction_wallmart
 Sales Prediction PoC 
 
-!Attention!!, application container works in the dev mode (via tty) in order to simplify further development process. main.py entrypoint is temporary detached
 
-TBD: actual data transformation and 
+> Attention!!, application container works in the dev mode (via tty) in order to simplify further development process. main.py entrypoint is temporary detached
+
+
+
+>TBD: actual data transformation and 
 loading methods will be ajusted for 
 https://www.kaggle.com/datasets/divyajeetthakur/walmart-sales-prediction
 dataset
-
 However The template could be used for other perposes
 
 
