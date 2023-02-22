@@ -45,6 +45,9 @@ services:
       - mlflow
     networks:
       - mlflow_network
+    volumes:
+      - ./app:/app
+    tty: true
 
 volumes:
   mlflow:
