@@ -36,6 +36,8 @@ services:
       - ./postgres-data:/var/lib/postgresql/data
 
   app:
+    tty: true # needed to run app in dev mode should be replaced
+    stdin_open: true # needed to run app in dev mode should be replaced
     build: app
     ports:
       - "8000:8000"
@@ -47,7 +49,7 @@ services:
       - mlflow_network
     volumes:
       - ./app:/app
-    tty: true
+
 
 volumes:
   mlflow:
