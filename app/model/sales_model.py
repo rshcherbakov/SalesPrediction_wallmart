@@ -1,11 +1,17 @@
 
 import mlflow
 from mlflow import lightgbm as lgb
-import optuna 
+
 from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+import optuna 
 from loguru import  logger
 
 class LightGBMRegressor:
+    """Model regressor wrapper 
+       If there will be more than two predictors 
+       it's possible to add abstract class to make shure all interfaces will be properly setted
+    """
     def __init__(self):
         self.params = None
         self.model = None
@@ -63,7 +69,7 @@ class LightGBMRegressor:
         #TODO: log params if it will be required, currently Mlflow should be used
         logger.info("Hyperparams optimysed! the best set of params is {study.best_params}")
     
-    def train(self, X_train, y_train, X_valid=None, y_valid=None):
+    def train(self, X_train, y_train, X_valid=None, y_valid=None, n_opt=100):
         """Method for model training
 
         Args:
@@ -75,17 +81,21 @@ class LightGBMRegressor:
         Raises:
             ValueError: throws if no model trained yet
         """
-        if self.params is None:
-            raise ValueError("No hyperparameters specified. Please run 'optimize_params' method first.")
-        
         train_data = lgb.Dataset(X_train, label=y_train)
         
         if X_valid is not None and y_valid is not None:
+
             valid_data = lgb.Dataset(X_valid, label=y_valid)
-            self.model = lgb.train(params, train_data, valid_sets=[train_data, valid_data], verbose_eval=False)
+
+            self.optimize_params(X_train, y_train, X_valid, y_valid, n_opt)
+            self.model = lgb.train(self.params, 
+                                   train_data, 
+                                   valid_sets=valid_data, 
+                                   verbose_eval=False)
         else:
-            self.model = lgb.train(params, train_data)
+            self.model = lgb.train(train_set=train_data)
     
+
     def predict(self, X):
         """Prediction wrapper
 

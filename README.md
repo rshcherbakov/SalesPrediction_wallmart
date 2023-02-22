@@ -1,10 +1,19 @@
 # SalesPrediction_wallmart
 Sales Prediction PoC 
 
+!Attention!!, application container works in the dev mode (via tty) in order to simplify further development process. main.py entrypoint is temporary detached
+
+TBD: actual data transformation and 
+loading methods will be ajusted for 
+https://www.kaggle.com/datasets/divyajeetthakur/walmart-sales-prediction
+dataset
+
+However The template could be used for other perposes
+
 
 ## Description
 
-This is a Docker Compose file that sets up an environment for training a sales prediction model with Python, Pandas, Dask, LightGBM, Optuna, and MLflow. The environment includes a Jupyter Notebook server, an MLflow tracking server, a MinIO object storage server, and a PostgreSQL database server.
+This is a Docker Compose file that sets up an environment for training a sales prediction model with Python, Pandas, LightGBM, Optuna, and MLflow. The environment includes a Jupyter Notebook server, an MLflow tracking server, a MinIO object storage server, and a PostgreSQL database server.
 
 ## Instructions
 
@@ -28,5 +37,4 @@ Start the environment by running the following command:
 Code:
 >docker-compose up -d
 
-This command will start the Jupyter Notebook server, MLflow tracking server, MinIO object storage server, and PostgreSQL database server as Docker containers in the background. You will be able to access the Jupyter Notebook server at http://localhost:8888 and the MLflow tracking server at http://localhost:5000.
 
