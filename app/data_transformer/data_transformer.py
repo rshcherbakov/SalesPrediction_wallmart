@@ -1,5 +1,5 @@
 import pandas as pd
-from logutu import logger
+from loguru import logger
 
 class SalesDataTransformer:
     """Set of methods for data transform

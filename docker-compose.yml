@@ -43,12 +43,13 @@ services:
       - "8000:8000"
     environment:
       - MLFLOW_TRACKING_URI=http://mlflow:5555
+    volumes:
+      - ${PWD}/app:/app
     depends_on:
       - mlflow
     networks:
       - mlflow_network
-    volumes:
-      - ./app:/app
+
 
 
 volumes:
