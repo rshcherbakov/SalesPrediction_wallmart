@@ -1,18 +1,37 @@
 # SalesPrediction_wallmart
 Sales Prediction PoC 
 
-<div class="alert alert-block alert-danger">
-<b>Attention:</b> application container works in the dev mode (via tty) in order to simplify further development process. main.py entrypoint is temporary detached
-</div>
-
 > **Note:** **TBD**: actual data transformation and 
 loading methods will be ajusted for 
-https://www.kaggle.com/datasets/divyajeetthakur/walmart-sales-prediction
-dataset
+[link: https://www.kaggle.com/datasets/divyajeetthakur/walmart-sales-prediction dataset]
 However The template could be used for other perposes
 
 
-## Description
+> **TODO:**
+> 1. Dataloader not adjusted for current data scheme
+>    1. Add date fields while reading data from datasource
+>    2. Read only needed columns
+>    3. Set right columns data type while reading data  
+>    4. Add index to the main datasource (date + item/store/group + timeperiod)
+>    5. Sort by date 
+> 2. Dataprocessors (Transformers) should be ajusted as well  
+>    Order of transformation:
+>    1. merge datasources
+>    2. clean data/fill nan values/fix issues  
+>    3. split train/val/test by slices (Important - do this before step 2.4)
+>    4. add aggregation transformation and timelag features for each datafold
+> 3. Model & Postprocessing
+>    1. conduct several experiments
+>    2. try stats model stecking with adding some other ML algorithm like SVR or MLP
+>    3. Add feature importance and feature selection 
+>    4. Add some metrics for business like **MAPE**, or/and some Business metrics
+> 4. Add dashboard
+>   1. Streamlit || Gradio || Graphana 
+> 5. Add incomming data monitoring
+> 6. Add Feedback loop and Trining loop automation   
+
+
+## Repository Description
 
 This is a Docker Compose file that sets up an environment for training a sales prediction model with Python, Pandas, LightGBM, Optuna, and MLflow. The environment includes a Jupyter Notebook server, an MLflow tracking server, a MinIO object storage server, and a PostgreSQL database server.
 
@@ -37,5 +56,3 @@ Start the environment by running the following command:
 
 Code:
 >docker-compose up -d
-
-

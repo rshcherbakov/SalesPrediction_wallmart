@@ -34,15 +34,15 @@ experiment = mlflow.get_experiment_by_name(experiment_name)
 if experiment is None:
     experiment = mlflow.create_experiment(experiment_name)
 
+mlflow.set_experiment(experiment_name=experiment_name)
 
 if __name__ == "__main__":
-    with mlflow.start_run(run_name="Sales Prediction Experiment #1"):
+    with mlflow.start_run():
         
-        with mlflow.start_run():
-            artifact_uri = mlflow.get_artifact_uri()
-            data_loader = SalesDataLoader(f"{artifact_uri}/sales_data.csv")
-            sales_df = data_loader.load_data() # attempt to load data from the Mlflow storage
-            #TODO: needs to be tested 
+        artifact_uri = mlflow.get_artifact_uri()
+        data_loader = SalesDataLoader(f"{artifact_uri}/sales_data.csv")
+        sales_df = data_loader.load_data() # attempt to load data from the Mlflow storage
+        #TODO: needs to be tested 
         
         #Order of transformation:
         # TBD
