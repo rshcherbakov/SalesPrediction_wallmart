@@ -18,7 +18,7 @@ instance added via docker copmouser
 """
 
 import mlflow
-from logutu import logger
+from loguru import logger
 
 from data_loader.data_loader import SalesDataLoader
 from data_transformer.data_transformer import SalesDataTransformer
