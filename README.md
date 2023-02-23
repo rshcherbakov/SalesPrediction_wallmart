@@ -3,7 +3,7 @@ Sales Prediction PoC
 
 > **Note:** **TBD**: actual data transformation and 
 loading methods will be ajusted for 
-[dataset](https://www.kaggle.com/datasets/divyajeetthakur/walmart-sales-prediction dataset)
+[dataset](https://www.kaggle.com/datasets/divyajeetthakur/walmart-sales-prediction)
 However The template could be used for other perposes
 
 
