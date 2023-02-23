@@ -1,0 +1,2 @@
+Usally this research activity is better to provide in separate repository with dedicated DS gitflow (where branches exists for hypotethis cheking) 
+However, in current repo there is a separate place for research and noteboks for the first time 
